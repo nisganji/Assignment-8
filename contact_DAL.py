@@ -1,12 +1,27 @@
 import sqlite3
 import os
+import tempfile
 
 
 DB_FILENAME = os.path.join(os.path.dirname(__file__), "contacts.db")
 
 
+def _resolve_db_path():
+    path = DB_FILENAME
+    dirpath = os.path.dirname(path) or "."
+    try:
+        os.makedirs(dirpath, exist_ok=True)
+    except Exception:
+        pass
+    if not os.access(dirpath, os.W_OK):
+        tempdir = tempfile.gettempdir()
+        path = os.path.join(tempdir, os.path.basename(DB_FILENAME))
+    return path
+
+
 def get_connection():
-    return sqlite3.connect(DB_FILENAME)
+    path = _resolve_db_path()
+    return sqlite3.connect(path)
 
 
 def init_contact_db():
