@@ -1,0 +1,30 @@
+{% extends "base.html" %}
+
+{% block title %}Nishanth Ganji | Home{% endblock %}
+
+{% block content %}
+<section class="hero clean-hero animate-on-scroll">
+    <div class="container hero-inner">
+        <div class="hero-copy">
+            <h1 class="hero-title">Nishanth Ganji</h1>
+            <h3 class="hero-sub">MSIS Student & Technology Professional.</h3>
+            <p class="hero-lead">Master of Science in Information Systems student at Indiana University with expertise in cloud architecture, AI development, and enterprise platforms. Passionate about creating innovative technology solutions that drive business transformation.</p>
+
+            <div class="hero-ctas">
+                <a href="{{ url_for('contact') }}" class="btn primary">Get started</a>
+                <a href="{{ url_for('about') }}" class="btn ghost">Learn more</a>
+            </div>
+        </div>
+
+        <div class="hero-visual">
+            <div class="profile-visual">
+                <img src="{{ url_for('static', filename='images/profile.jpeg') }}" alt="Nishanth Ganji profile" class="profile-frame">
+            </div>
+        </div>
+    </div>
+</section>
+{% endblock %}
+
+{% block scripts %}
+<script src="{{ url_for('static', filename='js/shapes.js') }}"></script>
+{% endblock %}

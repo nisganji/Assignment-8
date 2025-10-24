@@ -1,0 +1,67 @@
+{% extends "base.html" %}
+
+{% block title %}Nishanth Ganji | Contact{% endblock %}
+
+{% block content %}
+<section class="contact-hero animate-on-scroll">
+    <div class="container">
+        <h1>Get In Touch</h1>
+        <p>I'd love to hear from you</p>
+    </div>
+</section>
+
+<section class="contact-content container">
+    <div class="contact-info">
+        <h2>Contact Information</h2>
+        <div class="contact-item">
+            <h3>Email</h3>
+            <p><a href="mailto:nisganji@iu.edu">nisganji@iu.edu</a></p>
+        </div>
+        <div class="contact-item">
+            <h3>Phone</h3>
+            <p>930-333-7231</p>
+        </div>
+        <div class="contact-item">
+            <h3>LinkedIn</h3>
+            <p><a href="http://www.linkedin.com/in/nishanth-ganji" target="_blank">linkedin.com/in/nishanth-ganji</a></p>
+        </div>
+    </div>
+
+    <div class="contact-form-container">
+        <h2>Send Me a Message</h2>
+        <form id="contact-form" action="{{ url_for('contact') }}" method="POST">
+            <div class="form-group">
+                <label for="first-name">First Name</label>
+                <input type="text" id="first-name" name="first-name" required>
+                <span class="error-message" id="first-name-error">Please enter your first name</span>
+            </div>
+            
+            <div class="form-group">
+                <label for="last-name">Last Name</label>
+                <input type="text" id="last-name" name="last-name" required>
+                <span class="error-message" id="last-name-error">Please enter your last name</span>
+            </div>
+            
+            <div class="form-group">
+                <label for="email">Email Address</label>
+                <input type="email" id="email" name="email" required pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$">
+                <span class="error-message" id="email-error">Please enter a valid email address</span>
+            </div>
+            
+            <div class="form-group">
+                <label for="password">Password</label>
+                <input type="password" id="password" name="password" required minlength="8">
+                <span class="error-message" id="password-error">Password must be at least 8 characters</span>
+            </div>
+            
+            <div class="form-group">
+                <label for="confirm-password">Confirm Password</label>
+                <input type="password" id="confirm-password" name="confirm-password" required>
+                <span class="error-message" id="confirm-password-error">Passwords do not match</span>
+            </div>
+            
+            <button type="submit" class="btn primary">Submit</button>
+        </form>
+    </div>
+</section>
+{% endblock %}

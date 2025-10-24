@@ -1,0 +1,58 @@
+{% extends "base.html" %}
+
+{% block title %}Nishanth Ganji | Projects{% endblock %}
+
+{% block content %}
+<section class="resume-hero animate-on-scroll">
+    <div class="container">
+        <h1>Projects</h1>
+        <p>Selected research and engineering projects</p>
+    </div>
+</section>
+
+<section class="resume-content">
+    <div class="resume-section">
+        <div class="projects-header">
+            <h2 class="resume-title">Projects <span class="emoji">🚀</span></h2>
+            <a class="btn primary add-project-btn" href="{{ url_for('new_project') }}">
+                <span>+</span> Add New Project
+            </a>
+        </div>
+
+        <div class="projects-table-container">
+            <table class="projects-table">
+                <thead>
+                    <tr>
+                        <th>Image</th>
+                        <th>Title</th>
+                        <th>Description</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for p in projects %}
+                    <tr>
+                        <td class="image-cell">
+                            <a href="{{ url_for('static', filename='images/' ~ p.ImageFileName) }}" target="_blank" rel="noopener">
+                                <img src="{{ url_for('static', filename='images/' ~ p.ImageFileName) }}" alt="{{ p.Title }}" class="table-image">
+                            </a>
+                        </td>
+                        <td class="title-cell">{{ p.Title }}</td>
+                        <td class="description-cell">{{ p.Description }}</td>
+                    </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+        </div>
+
+        {% if not projects %}
+        <div class="empty-state">
+            <div class="empty-icon">📁</div>
+            <h3>No projects yet</h3>
+            <p>Start by adding your first project!</p>
+            <a class="btn primary" href="{{ url_for('new_project') }}">Add Project</a>
+        </div>
+        {% endif %}
+    </div>
+</section>
+
+{% endblock %}

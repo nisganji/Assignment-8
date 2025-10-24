@@ -1,0 +1,99 @@
+{% extends "base.html" %}
+
+{% block title %}Nishanth Ganji | About Me{% endblock %}
+
+{% block content %}
+<section class="about-hero animate-on-scroll">
+    <div class="container">
+        <h1>About Me</h1>
+        <p>My journey from engineering to IT solution architecture</p>
+    </div>
+</section>
+
+<section class="timeline-container">
+    <div class="timeline-line"></div>
+    
+    <div class="timeline-item">
+        <div class="timeline-content left">
+            <div class="timeline-branch"></div>
+            <div class="timeline-card">
+                <h3>Background</h3>
+                <div class="timeline-image">
+                    <img src="{{ url_for('static', filename='images/career.webp') }}" alt="Career path">
+                </div>
+                <p>I began my journey with a Bachelor of Engineering in Information Technology from Chaitanya Bharathi Institute of Technology, where I developed a strong foundation in software development and AI. My passion for technology led me to pursue a Master of Science in Information Systems at Indiana University, where I'm maintaining a perfect 4.0 GPA.</p>
+            </div>
+        </div>
+    </div>
+    
+    <div class="timeline-item">
+        <div class="timeline-content right">
+            <div class="timeline-branch"></div>
+            <div class="timeline-card">
+                <h3>Professional Goals</h3>
+                <p>My career aspiration is to become an IT Solution Architect, leveraging my expertise in cloud platforms, enterprise systems, and AI to design innovative technology solutions that solve complex business challenges. I'm particularly interested in digital transformation strategies that enhance customer experiences and drive operational efficiency.</p>
+            </div>
+        </div>
+    </div>
+     <!-- Interests section header -->
+    <div class="timeline-item">
+        <div class="timeline-content left">
+            <div class="timeline-card">
+                <h2 style="text-align:center; margin:0 0 1rem;">Interests</h2>
+            </div>
+        </div>
+    </div>
+    
+    <div class="timeline-item">
+        <div class="timeline-content left">
+            <div class="timeline-branch"></div>
+            <div class="timeline-card">
+                <h3>Travel</h3>
+                <div class="timeline-image">
+                    <img src="{{ url_for('static', filename='images/travel.jpeg') }}" alt="Travel">
+                </div>
+                <p>I love exploring new cultures and destinations. I've had the opportunity to travel to Japan and Thailand, experiencing their unique traditions, cuisines, and landscapes. These experiences have broadened my perspective and inspired my creative approach to problem-solving.</p>
+            </div>
+        </div>
+    </div>
+    
+    <div class="timeline-item">
+        <div class="timeline-content right">
+            <div class="timeline-branch"></div>
+            <div class="timeline-card">
+                <h3>Gaming & Entertainment</h3>
+                <div class="timeline-image">
+                    <img src="{{ url_for('static', filename='images/gaming.webp') }}" alt="Gaming">
+                </div>
+                <p>As an avid gamer with a PS5, I enjoy immersive gaming experiences that challenge strategic thinking. I'm also passionate about movie reviews and analysis, appreciating the storytelling and technical aspects of filmmaking.</p>
+            </div>
+        </div>
+    </div>
+    
+    <div class="timeline-item">
+        <div class="timeline-content left">
+            <div class="timeline-branch"></div>
+            <div class="timeline-card">
+                <h3>Scuba Diving</h3>
+                <div class="timeline-image">
+                    <img src="{{ url_for('static', filename='images/scuba.jpeg') }}" alt="Scuba Diving">
+                </div>
+                <p>Exploring the underwater world through scuba diving is one of my greatest passions. The tranquility and beauty of marine ecosystems provide a perfect balance to my technology-focused professional life.</p>
+            </div>
+        </div>
+    </div>
+    
+    <div class="timeline-item">
+        <div class="timeline-content right">
+            <div class="timeline-branch"></div>
+            <div class="timeline-card">
+                <h3>Pickleball</h3>
+                <div class="timeline-image">
+                    <img src="{{ url_for('static', filename='images/pickleball.jpeg') }}" alt="Pickleball">
+                </div>
+                <p>I enjoy staying active through pickleball, a sport that combines strategy, agility, and social interaction. It's a great way to maintain physical fitness while engaging in friendly competition.</p>
+            </div>
+        </div>
+    </div>
+</section>
+{% endblock %}

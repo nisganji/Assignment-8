@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{% block title %}Nishanth Ganji{% endblock %}</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/styles.css') }}">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <header class="site-header">
+        <nav class="site-nav">
+            <div class="container nav-inner">
+                <a class="logo" href="{{ url_for('home') }}" aria-label="Home"><span class="sr-only">Home</span></a>
+                <ul class="nav-links">
+                    <li><a href="{{ url_for('home') }}" {% if active_page == 'home' %}class="active"{% endif %}>Home</a></li>
+                    <li><a href="{{ url_for('about') }}" {% if active_page == 'about' %}class="active"{% endif %}>About Me</a></li>
+                    <li><a href="{{ url_for('resume') }}" {% if active_page == 'resume' %}class="active"{% endif %}>Resume</a></li>
+                    <li><a href="{{ url_for('projects') }}" {% if active_page == 'projects' %}class="active"{% endif %}>Projects</a></li>
+                    <li><a href="{{ url_for('contact') }}" {% if active_page == 'contact' %}class="active"{% endif %}>Contact</a></li>
+                </ul>
+                <!-- theme selector removed -->
+                <button class="burger" aria-label="Open navigation">
+                    <span class="line"></span>
+                    <span class="line"></span>
+                    <span class="line"></span>
+                </button>
+            </div>
+        </nav>
+    </header>
+
+    <main>
+        {% block content %}{% endblock %}
+    </main>
+
+    <footer>
+        <p>&copy; 2025 Nishanth Ganji. All rights reserved.</p>
+    </footer>
+
+    <script src="{{ url_for('static', filename='js/scripts.js') }}"></script>
+    <script src="{{ url_for('static', filename='js/ui.js') }}"></script>
+    {% block scripts %}{% endblock %}
+</body>
+</html>

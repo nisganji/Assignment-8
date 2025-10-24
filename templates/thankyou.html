@@ -1,0 +1,13 @@
+{% extends "base.html" %}
+
+{% block title %}Thank You | Nishanth Ganji{% endblock %}
+
+{% block content %}
+<section class="thankyou-hero full-hero">
+    <div class="container thankyou-content" style="max-width:900px; text-align:center;">
+        <h1 style="font-size:3.2rem; margin-bottom:1rem; color: white;">Thank You!</h1>
+        <p style="font-size:1.25rem; margin-bottom:1.5rem; color: white;">I'll get back to you as soon as possible.</p>
+        <a href="{{ url_for('home') }}" class="btn primary">Return to Homepage</a>
+    </div>
+</section>
+{% endblock %}
