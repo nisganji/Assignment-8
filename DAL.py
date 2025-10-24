@@ -2,7 +2,7 @@ import sqlite3
 import os
 
 
-DB_FILENAME = "projects.db"
+DB_FILENAME = os.path.join(os.path.dirname(__file__), "projects.db")
 
 
 def get_connection():
@@ -57,6 +57,10 @@ def list_projects():
 
 
 def insert_project(title, description, image_file_name):
+    # Normalize and validate inputs to prevent whitespace-only values
+    title = (title or "").strip()
+    description = (description or "").strip()
+    image_file_name = (image_file_name or "").strip()
     if not title or not description or not image_file_name:
         raise ValueError("All fields (title, description, image_file_name) are required")
     with get_connection() as conn:

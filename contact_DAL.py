@@ -2,7 +2,7 @@ import sqlite3
 import os
 
 
-DB_FILENAME = "contacts.db"
+DB_FILENAME = os.path.join(os.path.dirname(__file__), "contacts.db")
 
 
 def get_connection():
@@ -30,9 +30,14 @@ def init_contact_db():
 
 def insert_contact(first_name, last_name, email, password):
     """Insert a new contact form submission into the database"""
+    # Normalize and validate inputs to prevent whitespace-only values
+    first_name = (first_name or "").strip()
+    last_name = (last_name or "").strip()
+    email = (email or "").strip()
+    password = (password or "").strip()
     if not all([first_name, last_name, email, password]):
         raise ValueError("All fields (first_name, last_name, email, password) are required")
-    
+
     with get_connection() as conn:
         conn.execute(
             "INSERT INTO contacts (first_name, last_name, email, password) VALUES (?, ?, ?, ?)",

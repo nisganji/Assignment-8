@@ -67,9 +67,7 @@ def contact():
             flash('Passwords do not match.', 'error')
             return redirect(url_for('contact'))
         
-        if len(password) < 8:
-            flash('Password must be at least 8 characters.', 'error')
-            return redirect(url_for('contact'))
+        # Allow any non-empty password that matches confirmation (length not enforced here)
         
         # Save contact form data to the contacts database
         try:
